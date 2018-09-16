@@ -11,13 +11,13 @@ describe('global functions', function() {
      age = 18
   })
 
-  describe('invokeFunction', function(){
+  describe('justInvoke(fn)', function(){
     it('calls and returns the function as a callback, that shows that this is global from the callback', function(){
       expect(justInvoke(returnsThisAndArgs).thisValue).to.equal(window)
     })
   })
 
-  describe('setThisWithCall', function(){
+  describe('setThisWithCall(fn, thisValue, arg)', function(){
     let age = 18
     it('calls and returns the function as a callback, and assigns this to be bob while passing an argument to the invoked function', function(){
       let result = setThisWithCall(returnsThisAndArgs, bob, 18)
@@ -26,7 +26,7 @@ describe('global functions', function() {
     })
   })
 
-  describe('setThisWithApply', function(){
+  describe('setThisWithApply(fn, thisValue, args)', function(){
     let age = 20
     let hairColor = 'black'
     it('calls and returns the function as a callback, and assigns this to be bob while passing all arguments to the invoked function', function(){
@@ -45,7 +45,7 @@ describe('global functions', function() {
     })
   })
 
-  describe('returnNewFunctionOf', function(){
+  describe('returnNewFunctionOf(functionToBeCopied, thisValue)', function(){
     let fred;
     let functionToBeCopied;
 
